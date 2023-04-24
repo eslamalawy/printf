@@ -34,23 +34,21 @@ int print_rev(va_list ap, params_t *params)
 	char *str = va_arg(ap, char *);
 	(void)params;
 	
-	if ((*str >= 'A' && *str <= 'Z')
-		    || (*str >= 'a' && *str <= 'z'))
-	{
-		if (str)
-		{
-			
-			for (len = 0; *str; str++)
-				len++;
-			str--;
-			for (; len > 0; len--, str--)
-				sum += _putchar(*str);
-			}
-	}
-	else
+	if ((*str < 0))
 	{
 		sum += _putchar('%');
 		sum += _putchar('r');
+		return (sum);
+	}
+	if (str)
+	{
+		
+		
+		for (len = 0; *str; str++)
+			len++;
+		str--;
+		for (; len > 0; len--, str--)
+			sum += _putchar(*str);
 	}
 	return (sum);
 }
