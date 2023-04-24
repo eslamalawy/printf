@@ -34,7 +34,7 @@ int print_rev(va_list ap, params_t *params)
 	char *str = va_arg(ap, char *);
 	(void)params;
 	
-	if (*str < 33 || *str > 127)
+	if (*str < 33)
 	{
 		sum += _putchar('%');
 		sum += _putchar('r');
